@@ -25,13 +25,13 @@ const Exchanges = () => {
       </Row>
       <Row>
         {exchangesList.map((exchange) => (
-          <Col span={24}>
+          <Col span={24} className="exchanges">
             <Collapse>
               <Panel
                 key={exchange.id}
                 showArrow={false}
                 header={
-                  <Row key={exchange.id}>
+                  <Row className="exchanges-list" key={exchange.id}>
                     <Col span={6}>
                       <Text>
                         <strong>{exchange.rank}.</strong>
@@ -45,8 +45,12 @@ const Exchanges = () => {
                       </Text>
                     </Col>
                     <Col span={6}>${millify(exchange.volume)}</Col>
-                    <Col span={6}>{millify(exchange.numberOfMarkets)}</Col>
-                    <Col span={6}>{millify(exchange.marketShare)}%</Col>
+                    <Col className="exchange-item-1" span={6}>
+                      {millify(exchange.numberOfMarkets)}
+                    </Col>
+                    <Col className="exchange-item" span={6}>
+                      {millify(exchange.marketShare)}%
+                    </Col>
                   </Row>
                 }
               >
